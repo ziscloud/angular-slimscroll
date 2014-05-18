@@ -1,0 +1,26 @@
+{
+  "name": "angular-slimscroll",
+  "version": "0.0.1",
+  "authors": [
+    "Tony Wang <ziscloud@gmail.com>"
+  ],
+  "description": "An angular directive allows to use the jquery-slimscroll",
+  "main": "./angular-slimscroll.js",
+  "keywords": [
+    "angular",
+    "slimscroll"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/ziscloud/angular-slimscroll",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": ">=1.7",
+    "slimScroll": "~1.3.1"
+  }
+}
