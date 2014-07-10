@@ -4,7 +4,9 @@ angular.module('ui.slimscroll', []).directive('slimscroll', function() {
     link: function($scope, $elem, $attr) {
       var refresh = function() {
         var option = {};
-        if ($attr.slimscrollOption) {
+        if ($attr.slimscroll) {
+          option = $scope.$eval($attr.slimscroll);
+        } else if ($attr.slimscrollOption) {
           option = $scope.$eval($attr.slimscrollOption);
         }
         $elem.slimScroll({ destroy: true });
