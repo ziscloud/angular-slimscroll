@@ -7,14 +7,14 @@ Usage
 ------------
 
 ```html
-<div class="scroll-body" slimscroll slimscroll-option="slimscorllOption">
+<div class="scroll-body" slimscroll="slimscorllOption">
   Scroll Content
 </div>
 ```
 
 Options
 -------
-
+* **noWatch** - Prevent directive from watching the option object
 * **width** - Width in pixels of the visible scroll area. Stretch-to-parent if not set. Default: none
 * **height** - Height in pixels of the visible scroll area. Also supports auto to set the height to same as parent container. Default: 250px
 * **size** - Width in pixels of the scrollbar. Default: 7px
