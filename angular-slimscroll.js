@@ -2,16 +2,16 @@ angular.module('ui.slimscroll', []).directive('slimscroll', function() {
   return {
     restrict: 'A',
     link: function($scope, $elem, $attr) {
-      var option = {};
       var refresh = function() {
+        var option = {};
+        if ($attr.slimscrollOption) {
+          option = $scope.$eval($attr.slimscrollOption);
+        }
+        $elem.slimScroll({ destroy: true });
         $elem.slimScroll(option);
       };
 
-      if ($attr.slimscrollOption != null) {
-        option = $scope.$eval($attr.slimscrollOption);
-      }
-
-      $elem.slimScroll(option);
+      refresh();
 
       if ($attr.slimscrollWatch) {
         $scope.$watchCollection($attr.slimscrollWatch, refresh);
