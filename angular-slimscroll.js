@@ -13,8 +13,8 @@ angular.module('ui.slimscroll', []).directive('slimscroll', function () {
         } else if ($attr.slimscrollOption) {
           option = $scope.$eval($attr.slimscrollOption);
         }
-        $elem.slimScroll({ destroy: true });
-        $elem.slimScroll(option);
+        $($elem).slimScroll({ destroy: true });
+        $($elem).slimScroll(option);
       };
 
       var init = function () {
