@@ -7,7 +7,7 @@ Usage
 ------------
 
 ```html
-<div class="scroll-body" slimscroll="slimscorllOption">
+<div class="scroll-body" slimscroll="{slimscrollOption: value}">
   Scroll Content
 </div>
 ```
