@@ -28,8 +28,8 @@ angular.module('ui.slimscroll', []).directive('slimscroll', function () {
           off.push($scope.$watchCollection($attr.slimscrollWatch, refresh));
         }
 
-        if ($attr.slimscrollListenTo) {
-          off.push($scope.$on($attr.slimscrollListenTo, refresh));
+        if ($attr.slimscrolllistento) {
+          off.push($scope.$on($attr.slimscrolllistento, refresh));
         }
       };
 
