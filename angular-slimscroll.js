@@ -34,6 +34,7 @@ angular.module('ui.slimscroll', []).directive('slimscroll', function () {
       };
 
       var destructor = function () {
+        $($elem).slimScroll({ destroy: true });
         off.forEach(function (unbind) {
           unbind();
         });
