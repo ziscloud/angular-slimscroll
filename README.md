@@ -3,6 +3,14 @@ angular-slimscroll
 This is a small directive to allow the use of jquery slimScroll plugin (https://github.com/rochal/jQuery-slimScroll) in angular.
 Get more detailed information about slimScroll, please visit: http://rocha.la/jQuery-slimScroll
 
+Install
+------------
+This plugin can be installed via bower. If you already have the bower installed in your machine, you can install it by the following command, if you are not familiar with bower, please refer to http://bower.io/ to learn more about the bower itself.
+
+```javascript
+bower install angular-slimscroll --save
+```
+
 Usage
 ------------
 
