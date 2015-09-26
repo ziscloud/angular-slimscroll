@@ -6,21 +6,22 @@ angular.module('ui.slimscroll', []).directive('slimscroll', function () {
     link: function ($scope, $elem, $attr) {
       var off = [];
       var option = {};
-      
-      var refresh = function () {		
-         if ($attr.slimscroll) {		         
-           option = $scope.$eval($attr.slimscroll);		           
-         } else if ($attr.slimscrollOption) {		        
-           option = $scope.$eval($attr.slimscrollOption);		           
-         }
-         
-        $($elem).slimScroll({ destroy: true });		        
 
-         $($elem).slimScroll(option);		         
+      var refresh = function () {
+        if (angular.isDefined($attr.slimscroll)) {
+          option = $scope.$eval($attr.slimscroll) || {};
+        } else if ($attr.slimscrollOption) {
+          option = $scope.$eval($attr.slimscrollOption) || {};
+        }
+
+        var el = angular.element($elem);
+
+        el.slimScroll({destroy: true});
+        el.slimScroll(option);
       };
-      
+
       var registerWatch = function () {
-        if ($attr.slimscroll && !option.noWatch) {
+        if (angular.isDefined($attr.slimscroll) && !option.noWatch) {
           off.push($scope.$watchCollection($attr.slimscroll, refresh));
         }
 
@@ -34,7 +35,7 @@ angular.module('ui.slimscroll', []).directive('slimscroll', function () {
       };
 
       var destructor = function () {
-        $($elem).slimScroll({ destroy: true });
+        angular.element($elem).slimScroll({destroy: true});
         off.forEach(function (unbind) {
           unbind();
         });
@@ -42,7 +43,7 @@ angular.module('ui.slimscroll', []).directive('slimscroll', function () {
       };
 
       off.push($scope.$on('$destroy', destructor));
-      
+
       registerWatch();
     }
   };
