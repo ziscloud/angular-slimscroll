@@ -1,4 +1,4 @@
-angular.module('ui.slimscroll', []).directive('slimscroll', function () {
+angular.module('ui.slimscroll', []).directive('slimscroll', ['$timeout', function ($timeout) {
   'use strict';
 
   return {
@@ -8,16 +8,18 @@ angular.module('ui.slimscroll', []).directive('slimscroll', function () {
       var option = {};
 
       var refresh = function () {
-        if (angular.isDefined($attr.slimscroll)) {
-          option = $scope.$eval($attr.slimscroll) || {};
-        } else if ($attr.slimscrollOption) {
-          option = $scope.$eval($attr.slimscrollOption) || {};
-        }
+          $timeout(function () {
+              if (angular.isDefined($attr.slimscroll)) {
+                  option = $scope.$eval($attr.slimscroll) || {};
+              } else if ($attr.slimscrollOption) {
+                  option = $scope.$eval($attr.slimscrollOption) || {};
+              }
 
-        var el = angular.element($elem);
+              var el = angular.element($elem);
 
-        el.slimScroll({destroy: true});
-        el.slimScroll(option);
+              el.slimScroll({ destroy: true });
+              el.slimScroll(option);
+          });
       };
 
       var registerWatch = function () {
@@ -47,4 +49,4 @@ angular.module('ui.slimscroll', []).directive('slimscroll', function () {
       registerWatch();
     }
   };
-});
+}]);
