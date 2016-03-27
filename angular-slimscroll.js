@@ -1,4 +1,4 @@
-angular.module('ui.slimscroll', []).directive('slimscroll', function () {
+angular.module('ui.slimscroll', []).directive('slimscroll', function ($window) {
   'use strict';
 
   return {
@@ -19,6 +19,16 @@ angular.module('ui.slimscroll', []).directive('slimscroll', function () {
         el.slimScroll({destroy: true});
         el.slimScroll(option);
       };
+
+      angular.element($window).bind('resize', function() {
+          if ($attr.slimscroll) {            
+              option = $scope.$eval($attr.slimscroll);              
+            } else if ($attr.slimscrollOption) {           
+             option = $scope.$eval($attr.slimscrollOption);              
+            }
+               
+           $($elem).slimScroll(option);
+       });
 
       var registerWatch = function () {
         if (angular.isDefined($attr.slimscroll) && !option.noWatch) {
