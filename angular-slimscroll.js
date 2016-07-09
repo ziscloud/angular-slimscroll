@@ -1,4 +1,4 @@
-angular.module('ui.slimscroll', []).directive('slimscroll', ['$timeout', function ($timeout) {
+angular.module('ui.slimscroll', []).directive('slimscroll', ['$timeout', '$window', function ($timeout, $window) {
   'use strict';
 
   return {
