@@ -1,0 +1,19 @@
+{
+  "name": "angular-slimscroll",
+  "version": "1.0.0",
+  "description": "angular directive for jquery slimscroll",
+  "main": "angular-slimscroll.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ziscloud/angular-slimscroll.git"
+  },
+  "keywords": [
+    "slimscroll"
+  ],
+  "author": "ziscloud",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ziscloud/angular-slimscroll/issues"
+  },
+  "homepage": "https://github.com/ziscloud/angular-slimscroll#readme"
+}
