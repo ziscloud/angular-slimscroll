@@ -11,6 +11,11 @@ This plugin can be installed via bower. If you already have the bower installed 
 bower install angular-slimscroll --save
 ```
 
+Then add `ui.slimscroll` as a dependency for your app:
+```javascript
+var app =  angular.module('app', ['ui.slimscroll']);
+```
+
 Usage
 ------------
 
