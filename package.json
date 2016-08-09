@@ -11,6 +11,13 @@
     "slimscroll"
   ],
   "author": "ziscloud",
+  "contributors": [
+    {
+      "name": "Krystian Kościelniak",
+      "email": "krystiankoscielniak@gmail.com",
+      "url": "http://kkoscielniak.xyz/"
+    }
+  ]
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ziscloud/angular-slimscroll/issues"
