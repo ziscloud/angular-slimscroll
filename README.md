@@ -45,6 +45,7 @@ Options
 * **scrollBy** - Increases/decreases current scroll value by specified amount (positive or negative). Can be called on any element with slimScroll already enabled. Example: $(element).slimScroll({ scrollBy: '60px' });
 * **disableFadeOut** - Disables scrollbar auto fade. When set to true scrollbar doesn't disappear after some time when mouse is over the slimscroll div.Default: false
 * **touchScrollStep** - Allows to set different sensitivity for touch scroll events. Negative number inverts scroll direction.Default: 200
+* **onScroll** - Allows to execute a function from the controllers scope on scroll event. Example: `onScroll: onScrollEvent`
 
 License
 -------

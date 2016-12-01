@@ -8,6 +8,9 @@ angular.module('ui.slimscroll', []).directive('slimscroll', ['$timeout', '$windo
       var option = {};
 
       var refresh = function () {
+
+          var isEventBound = false;
+
           $timeout(function () {
               if (angular.isDefined($attr.slimscroll)) {
                   option = $scope.$eval($attr.slimscroll) || {};
@@ -18,17 +21,25 @@ angular.module('ui.slimscroll', []).directive('slimscroll', ['$timeout', '$windo
               var el = angular.element($elem);
 
               el.slimScroll({ destroy: true });
-              el.slimScroll(option);
+
+              if (option.onScroll && !isEventBound) {
+                el.slimScroll(option).bind('slimscrolling', function(e, pos) {
+                  option.onScroll();
+                  isEventBound = true;
+                });
+              } else {
+                el.slimScroll(option);
+              }
           });
       };
 
       angular.element($window).bind('resize', function() {
-          if ($attr.slimscroll) {            
-              option = $scope.$eval($attr.slimscroll);              
-            } else if ($attr.slimscrollOption) {           
-             option = $scope.$eval($attr.slimscrollOption);              
+          if ($attr.slimscroll) {
+              option = $scope.$eval($attr.slimscroll);
+            } else if ($attr.slimscrollOption) {
+              option = $scope.$eval($attr.slimscrollOption);
             }
-               
+
            $($elem).slimScroll(option);
        });
 
